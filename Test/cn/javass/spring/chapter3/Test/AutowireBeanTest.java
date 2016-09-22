@@ -19,10 +19,18 @@ public class AutowireBeanTest {
 		api.sayHello();
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testbyType(){
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("chapter3/autowire-byType.xml");
+		HelloApi api= context.getBean("bean", HelloApi.class);
+		api.sayHello();
+	}
+	
+	
+	@Test
+	public void testbyType2(){
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("chapter3/autowire-byType2.xml");
 		HelloApi api= context.getBean("bean", HelloApi.class);
 		api.sayHello();
 	}
