@@ -27,10 +27,25 @@ public class AutowireBeanTest {
 		api.sayHello();
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testbyType2(){
 		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("chapter3/autowire-byType2.xml");
+		HelloApi api= context.getBean("bean", HelloApi.class);
+		api.sayHello();
+	}
+	
+	@Ignore
+	@Test
+	public void testbyconstructor(){
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("chapter3/autowire-byConstructor.xml");
+		HelloApi api= context.getBean("bean", HelloApi.class);
+		api.sayHello();
+	}
+	
+	@Test
+	public void testautodetect(){
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("chapter3/autowire-autodetect.xml");
 		HelloApi api= context.getBean("bean", HelloApi.class);
 		api.sayHello();
 	}
